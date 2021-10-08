@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta     charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		"use strict";
+
+		let getallen = [];
+		let aantal = prompt("Hoeveel getallen wil je ingeven?", 3);
+		let fout = false;
+
+		function controleAantal(aantal) {
+			if (aantal == null) {
+				fout = true;
+				return document.write(`<p> U hebt geannulleerd! </p>`);
+			 } else if (aantal == 0) {
+			 	fout = true;
+			 	return document.write(`<p> U heeft niets ingegeven! </p>`);
+			 } else if (isNaN(aantal)) {
+			 	fout = true;
+			 	return document.write(`<p> Dit is geen correcte ingave </p>`);
+			 } else {
+			 	return aantal;
+			 }
+		}
+
+		aantal = controleAantal(aantal);
+
+		function waardeGetal(waarde) {
+			return waarde;
+		}
+
+		if (fout == false) {
+			for (let i = 1; i <= aantal; i++) {
+			getallen.push(waardeGetal(prompt(`Geef getal ${i} in`)));
+			}
+		}
+		
+		document.write(`<p> ${getallen} </p>`);
+
+		function controleGetal(getallen) {
+			let getallen2 = [];
+			for (let i = 0; i < getallen.length; i++) {
+				if (getallen[i] == null || getallen[i] == 0 || isNaN(getallen[i])) {
+					getallen2.push("FOUT");
+				} else {
+					getallen2.push(getallen[i]);
+				}
+			}	
+		return document.write(`<p> ${getallen2} </p>`);
+		}
+		
+		controleGetal(getallen);
+			
+	</script>
+</body>
+</html>
+

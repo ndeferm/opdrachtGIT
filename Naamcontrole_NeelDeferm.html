@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta     charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+
+		let fout = false;
+		
+		function controle(naamIngevuld) {
+			if (naamIngevuld == null) {
+				fout = true;
+				return document.write(`<p> Je hebt geannulleerd! </p>`);
+			} else if (naamIngevuld.length == 0) {
+				fout = true;
+				return document.write(`<p> Je hebt niets ingevuld! </p>`);
+			} else if (naamIngevuld.length < 2) {
+				fout = true;
+				return document.write(`<p> Je naam is te kort! </p>`);
+			} else {
+				return naamIngevuld.charAt(0).toUpperCase() + naamIngevuld.substring(1); 
+			}
+		}
+		
+		let voornaamCheck = controle(prompt("Wat is jouw voornaam?", "neel"));
+
+		if (fout == false) { 
+			achternaamCheck = controle(prompt("Wat is jouw achternaam?", "deferm"));
+		}	
+	 		
+		if (fout == false) {
+			document.write(`<p> Hey ${voornaamCheck} ${achternaamCheck} </p>`);
+		}
+		
+	</script>
+</body>
+</html>
+
